@@ -112,7 +112,7 @@ function NewYearCelebration() {
       <div className="text-center text-white px-4 md:px-8 space-y-8 fixed">
         {/* Header Animation */}
         <motion.h1
-          className="text-6xl font-extrabold max-md:text-3xl max-md:pt-10 mb-6 max-md:text-center text-[#FF1493] drop-shadow-lg"
+          className="text-6xl font-extrabold mb-6 max-md:text-center text-[#FF1493] drop-shadow-lg"
           initial={{ opacity: 0, y: -60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, type: "spring", stiffness: 80 }}
