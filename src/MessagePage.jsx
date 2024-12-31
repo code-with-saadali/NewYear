@@ -1,10 +1,21 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";  // Import useNavigate instead of useHistory
 import Confetti from "react-confetti";
 import { useState, useEffect } from "react";
 
 function MessagePage() {
   const location = useLocation();
-  const { message } = location.state || {};
+  const navigate = useNavigate();  // Using useNavigate for navigation
+  
+  // Retrieve the message from localStorage if not passed through location.state
+  const [message, setMessage] = useState(localStorage.getItem("message") || location.state?.message || "Wishing you a fabulous New Year!");
+  
+  // If no message is found, redirect to the home page
+  useEffect(() => {
+    if (!message) {
+      navigate("/"); // Redirect to home page
+    }
+  }, [message, navigate]);
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
@@ -28,7 +39,6 @@ function MessagePage() {
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     window.open(whatsappURL, "_blank");
   };
-  
 
   return (
     <div
@@ -60,7 +70,7 @@ function MessagePage() {
           🎉 Your New Year Message 🎉
         </h1>
         <p className="mt-6 text-3xl text-[#1E90FF] font-semibold drop-shadow-xl">
-          {message || "Wishing you a fabulous New Year!"}
+          {message}
         </p>
 
         {/* Additional Festive Details */}
