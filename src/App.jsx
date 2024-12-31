@@ -1,11 +1,16 @@
-import New from "./New";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import NewYearCelebration from "./NewYearCelebration";
+import MessagePage from "./MessagePage"; 
 
-const App = () => {
+function App() {
   return (
-    <div>
-      <New />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<NewYearCelebration />} />
+        <Route path="/message" element={<MessagePage />} />
+      </Routes>
+    </Router>
   );
-};
+}
 
 export default App;

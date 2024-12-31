@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 // Function for generating a random color
 const randomColor = () => {
@@ -34,6 +35,7 @@ function NewYearCelebration() {
     new Audio("https://www.soundjay.com/button/beep-07.wav")
   );
   const [audioPlaying, setAudioPlaying] = useState(false);
+  const navigate = useNavigate();
 
   // Handle window resize
   useEffect(() => {
@@ -95,6 +97,13 @@ function NewYearCelebration() {
   const emojiReactions = ["🎆", "🎉", "🎇", "✨", "🌟", "🥂"];
   const randomEmoji =
     emojiReactions[Math.floor(Math.random() * emojiReactions.length)];
+
+  const handleMessageSubmit = (e) => {
+    if (e.key === "Enter") {
+      // Navigate to the new page and pass the message as state
+      navigate("/message", { state: { message } });
+    }
+  };
 
   return (
     <div
@@ -202,6 +211,7 @@ function NewYearCelebration() {
               placeholder="Share your New Year wish"
               className="max-w-[230px] h-[55px] px-3 text-lg rounded-lg bg-[#1E90FF] placeholder-white focus:outline-none focus:ring-2 focus:ring-[#FF1493]"
               onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={handleMessageSubmit}
             />
           </motion.div>
         )}
@@ -229,31 +239,6 @@ function NewYearCelebration() {
             transition={{ delay: 1.5, duration: 1.2 }}
           >
             {randomEmoji}
-          </motion.div>
-        )}
-
-        {/* Cheers Message */}
-        {!celebration && (
-          <motion.div
-            className="mt-8 text-3xl font-light text-white"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2, duration: 1 }}
-          >
-            🥂 Cheers to a year of growth, happiness, and success! 🎉
-          </motion.div>
-        )}
-
-        {/* Additional Message */}
-        {!celebration && (
-          <motion.div
-            className="mt-4 text-xl font-light text-white"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2.5, duration: 1 }}
-          >
-            Here's to embracing new opportunities and challenges. Let's make
-            2025 unforgettable!
           </motion.div>
         )}
       </div>
