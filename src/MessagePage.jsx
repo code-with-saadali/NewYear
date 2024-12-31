@@ -23,7 +23,7 @@ function MessagePage() {
 
   // Handle message submit by opening WhatsApp with the message
   const handleMessageSubmit = () => {
-    const phoneNumber = "0317617835";  // Your WhatsApp number
+    const phoneNumber = "92317617835";  // Your WhatsApp number
     const encodedMessage = encodeURIComponent(message || "Wishing you a fabulous New Year!");
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     window.open(whatsappURL, "_blank");
