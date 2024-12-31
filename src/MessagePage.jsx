@@ -23,11 +23,12 @@ function MessagePage() {
 
   // Handle message submit by opening WhatsApp with the message
   const handleMessageSubmit = () => {
-    const phoneNumber = "+92317617835";  // Correct international WhatsApp number
-    const encodedMessage = encodeURIComponent(message || "Wishing you a fabulous New Year!");
+    const phoneNumber = "+92317617835";  // Ensure this is the correct WhatsApp number
+    const encodedMessage = encodeURIComponent(message || "Wishing you a fabulous New Year! 🎉✨");
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     window.open(whatsappURL, "_blank");
   };
+  
 
   return (
     <div

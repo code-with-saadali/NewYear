@@ -112,7 +112,7 @@ function NewYearCelebration() {
       <div className="text-center text-white px-4 md:px-8 space-y-8 fixed">
         {/* Header Animation */}
         <motion.h1
-          className="text-6xl font-extrabold mb-6 max-md:text-center text-[#FF1493] drop-shadow-lg"
+          className="text-6xl font-extrabold max-md:text-3xl max-md:pt-10 mb-6 max-md:text-center text-[#FF1493] drop-shadow-lg"
           initial={{ opacity: 0, y: -60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, type: "spring", stiffness: 80 }}
@@ -128,7 +128,7 @@ function NewYearCelebration() {
             animate={{ opacity: 1, scale: [1, 1.5, 1] }}
             transition={{ delay: 0.5, duration: 1, type: "spring" }}
           >
-            T-minus {countdown}s - Get Ready!
+             {countdown}s - Get Ready!
           </motion.div>
         )}
 
@@ -147,7 +147,7 @@ function NewYearCelebration() {
         {/* Celebration Message */}
         {celebration && countdown <= 0 && (
           <motion.div
-            className="mt-6 text-6xl font-extrabold text-center text-[#FFD700] drop-shadow-lg"
+            className="mt-6 text-6xl max-md:text-2xl max-md:leading-tight font-extrabold text-center text-[#FFD700] drop-shadow-lg"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
@@ -162,7 +162,7 @@ function NewYearCelebration() {
               {message}
             </div>
             <motion.div
-              className="mt-8 text-4xl font-semibold text-[#32CD32] drop-shadow-lg"
+              className="mt-8 text-4xl max-md:text-2xl font-semibold text-[#32CD32] drop-shadow-lg"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1, y: [-10, 10, 0] }}
               transition={{
@@ -221,7 +221,7 @@ function NewYearCelebration() {
           <motion.button
             onClick={handleClick}
             aria-label="Replay Celebration"
-            className="mt-6 px-12 py-6 bg-gradient-to-r from-[#FFD700] via-[#6A5ACD] to-[#FF1493] text-white rounded-lg text-2xl font-semibold transform transition-all hover:scale-110 hover:bg-gradient-to-r hover:from-[#FF1493] hover:via-[#6A5ACD] hover:to-[#FFD700] focus:outline-none focus:ring-4 focus:ring-[#1E90FF]"
+            className="mt-6 max-w-[450px] px-6 h-[52px] bg-gradient-to-r from-[#FFD700] via-[#6A5ACD] to-[#FF1493] text-white rounded-xl text-2xl font-semibold transform transition-all hover:scale-110 hover:bg-gradient-to-r hover:from-[#FF1493] hover:via-[#6A5ACD] hover:to-[#FFD700] focus:outline-none focus:ring-4 focus:ring-[#1E90FF]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 1.2 }}
